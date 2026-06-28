@@ -5,13 +5,13 @@ import java.util.*;
 
 public class WordleGame {
 
-    private String answer;
+    private final String answer;
     private int steps;
-    private WordleDictionary dictionary;
-    private PrintWriter logger;
-    private List<String> guesses;
-    private List<String> hints;
-    private Set<String> usedHints;
+    private final WordleDictionary dictionary;
+    private final PrintWriter logger;
+    private final List<String> guesses;
+    private final List<String> hints;
+    private final Set<String> usedHints;
     private boolean gameOver;
     private boolean win;
 

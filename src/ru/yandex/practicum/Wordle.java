@@ -16,8 +16,8 @@ public class Wordle {
             try {
                 dictionary = loader.loadDictionary("russian_nouns.txt", logger);
             } catch (IOException e) {
-                System.out.println("Критическая ошибка при загрузке словаря: " + e.getMessage());
-                System.out.println("Проверьте наличие файла russian_nouns.txt в корне проекта.");
+                logger.println("Критическая ошибка при загрузке словаря: " + e.getMessage());
+                System.out.println("Критическая ошибка при загрузке словаря. Подробности в лог-файле.");
                 return;
             }
 
@@ -45,7 +45,7 @@ public class Wordle {
                         continue;
                     }
 
-                    if (input.length() != 5 || !input.chars().allMatch(ch -> ch >= 'а' && ch <= 'е')) {
+                    if (input.length() != 5 || !input.chars().allMatch(ch -> (ch >= 'а' && ch <= 'я') || ch == 'ё')) {
                         System.out.println("Слово должно состоять ровно из 5 русских букв. Попробуйте снова.");
                         continue;
                     }

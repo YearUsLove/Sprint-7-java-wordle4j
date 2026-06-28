@@ -18,7 +18,7 @@ public class WordleDictionaryLoader {
             while ((line = reader.readLine()) != null) {
                 line = line.trim().toLowerCase().replace('ё', 'е');
 
-                if (line.length() == 5 && line.chars().allMatch(ch -> ch >= 'а' && ch <= 'е')) {
+                if (line.length() == 5 && line.chars().allMatch(ch -> (ch >= 'а' && ch <= 'я') || ch == 'ё')) {
                     words.add(line);
                 } else if (!line.isEmpty()) {
                     logger.println("Пропущено слово из словаря: " + line);

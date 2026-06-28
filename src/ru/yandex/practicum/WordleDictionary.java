@@ -4,7 +4,8 @@ import java.util.*;
 
 public class WordleDictionary {
 
-    private List<String> words;
+    private final List<String> words;
+    private final Random random = new Random();
 
     public WordleDictionary(Set<String> wordSet) {
         this.words = new ArrayList<>(wordSet);
@@ -15,7 +16,7 @@ public class WordleDictionary {
     }
 
     public String getRandomWord() {
-        return words.get(new Random().nextInt(words.size()));
+        return words.get(random.nextInt(words.size()));
     }
 
     public List<String> findHintWords(List<String> previousGuesses, List<String> previousHints) {
